@@ -1,8 +1,8 @@
-package main.java.ru.eltex.calculator;
+package ru.eltex.calculator;
 import java.util.Scanner;
 public class Calculator {
     public static void main (String[] args) {
-        System.out.println("Введите выражение в строку");
+        System.out.println("Введите выражение в строку: ");
         Scanner reader = new Scanner(System.in);
         String s = reader.nextLine();
         String[] tmpStr = s.split(" ");
@@ -26,13 +26,11 @@ public class Calculator {
                     c = a / b;
                     break;
                 default:
-                    System.out.println("Введена неверная функция");
-
-                    System.out.println("Время выполнения Array List " );
+                    System.out.println("Введена неверная функция!");
             }
         }
         else
-            System.out.println("Введены некорректные данн" );
-        System.out.println("Результат:" + c);
+            System.out.println("Введены некорректные данные!" );
+        System.out.println("Результат: " + c);
     }
 }
