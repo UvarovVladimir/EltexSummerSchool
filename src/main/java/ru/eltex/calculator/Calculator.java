@@ -27,6 +27,8 @@ public class Calculator {
                     break;
                 default:
                     System.out.println("Введена неверная функция");
+
+                    System.out.println("Время выполнения Array List в мс: " );
             }
         }
         else
