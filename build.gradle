@@ -1,6 +1,6 @@
 apply plugin: "java"
 apply plugin: "application"
-mainClassName="ru.eltex.Calculator"
+mainClassName="main.java.ru.eltex.calculator.Calculator"
 run{
     standardInput = System.in
 }
