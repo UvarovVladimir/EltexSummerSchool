@@ -96,6 +96,5 @@ public class Collections {
             System.out.println("Быстрее всех элементы удалены в HashSet");
         else
             System.out.println("Быстрее всех элементы удалены в HashMap");
-
     }
 }
