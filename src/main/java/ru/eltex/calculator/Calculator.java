@@ -12,7 +12,7 @@ public class Calculator {
         if (tmpStr.length>2) {
             a =  Double.valueOf(tmpStr[0]) ;
             b =  Double.valueOf(tmpStr[2]) ;
-            switch (tmpStr[1]) {
+            switch (tmpStr[1]) {                 //Выбор операции
                 case "+":
                     c = a + b;
                     break;

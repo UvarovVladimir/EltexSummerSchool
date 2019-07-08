@@ -81,7 +81,7 @@ public class Collections {
         for (int i =0; i<1000000;i++){
             arrhashMap.put(i , i);
         }
-        long executeTimeHashMap =System.currentTimeMillis() - startTime; // Вычисление времени выполнения ArrayList
+        long executeTimeHashMap =System.currentTimeMillis() - startTime; //   Вычисление времени выполнения ArrayList
         startTimeNano = System.nanoTime();
         arrhashMap.remove(999999);
         long executeTimeNanoHashMap = System.nanoTime() - startTimeNano; // Вычисление времени выполнения ArrayList
