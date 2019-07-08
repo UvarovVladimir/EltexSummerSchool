@@ -15,6 +15,8 @@ public class Collections {
         long executeTime =System.currentTimeMillis() - startTime; // Вычисление времени выполнения ArrayList
         System.out.println("Время выполнения Array List в мс: " + executeTime);
 
+        System.out.println("Время выполнения Array List в мс: " + executeTime);
+
 
     }
 }
