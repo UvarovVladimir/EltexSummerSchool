@@ -28,11 +28,11 @@ public class Calculator {
                 default:
                     System.out.println("Введена неверная функция");
 
-                    System.out.println("Время выполнения Array List в мс: " );
+                    System.out.println("Время выполнения Array List " );
             }
         }
         else
-            System.out.println("Введены некорректные данные" );
+            System.out.println("Введены некорректные данн" );
         System.out.println("Результат:" + c);
     }
 }

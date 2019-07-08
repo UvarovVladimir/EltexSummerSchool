@@ -17,7 +17,7 @@ public class Collections {
 
         System.out.println("Время выполнения Array List в мс: " + executeTime);
 
-        System.out.println("Время выполнения Array List в мс: " + executeTime);
+        System.out.println("Время выполнения Array List : " + executeTime);
 
 
     }
