@@ -6,6 +6,5 @@
 Здесь будут храниться мои примеры решения задач!  
 
 ---
-[Мой репозиторий](https://github.com/UvarovVladimir)  
+[Я в VK](https://vk.com/slider23)  
 
-![А это я ](https://vk.com/slider23?z=photo4904004_456239299%2Fphotos4904004 "Подсказка")
