@@ -57,7 +57,6 @@ abstract class User implements CSV {
     }
 }
 
-
 class Manager extends User{
     //variables
     ArrayList<Sales> listSale ;
@@ -102,13 +101,6 @@ class Manager extends User{
         super.setEmail(email);
     }
 }
-
-
-
-
-
-
-
 
 class Developer extends User{
 
@@ -210,7 +202,7 @@ public class Hierarchy {
                 for (int i=4; i<arrTmp.length;i++){
                         listLang.add(arrTmp[i]);
                 }
-                developer.setListLang(listLang);// Add collection to manegers object
+                developer.setListLang(listLang);// Add collection to developers object
             }
 
         } catch (IOException error){
@@ -229,9 +221,6 @@ public class Hierarchy {
                 System.out.println(listDevelop.get(i).listLang.get(j));
             }
         }
-
-
-
 
         //*************************WRITE*************************
 
