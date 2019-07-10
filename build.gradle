@@ -1,8 +1,7 @@
 apply plugin: "java"
 apply plugin: "application"
-mainClassName="ru.eltex.collections.Collections"
+mainClassName="ru.eltex.twoIn1000.TwoIn1000"
 run{
-    jvmArgs=["-XX:ParallelGCThreads=1"]
     standardInput = System.in
 
 }
