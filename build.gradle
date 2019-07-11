@@ -1,6 +1,6 @@
 apply plugin: "java"
 apply plugin: "application"
-mainClassName="ru.eltex.twoIn1000.TwoIn1000"
+mainClassName="ru.eltex.hierarchy.Hierarchy"
 run{
     standardInput = System.in
 
