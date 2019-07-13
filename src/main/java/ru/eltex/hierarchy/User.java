@@ -1,14 +1,7 @@
 package ru.eltex.hierarchy;
 
-abstract class User implements CSV {
+abstract class User {
 
-    //Interface
-    public  String toCSV(){
-        return this.id +";"+this.fio +";" +this.phone + ";" + this.email;
-    }
-    public void fromCSV(String str){
-        String[] arr = str.split(";");
-    }
 
     //Variable
     private Integer id;
@@ -33,7 +26,6 @@ abstract class User implements CSV {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
     public String getEmail() { return email; }
     public void setEmail(String email) {
         this.email = email;
@@ -46,4 +38,8 @@ abstract class User implements CSV {
         this.phone=phone;
         this.email=email;
     }
+
+    public User(){}
+
+
 }

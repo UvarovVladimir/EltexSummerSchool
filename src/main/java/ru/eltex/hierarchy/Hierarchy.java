@@ -5,11 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-interface CSV {
-    String toCSV();
-    void fromCSV(String str);
-}
-
 public class Hierarchy {
     public static void main(String[] args) {
         //************************MANAGERS*************************
@@ -19,17 +14,9 @@ public class Hierarchy {
             Scanner in =new Scanner(fr);
             while (in.hasNextLine()) {                                 //read lines until the end
                 String line = in.nextLine();
-                String[] arrTmp = line.split(",");              //Create new arr from line String
-                Manager manager = new Manager(Integer.parseInt(arrTmp[0]) , arrTmp[1], arrTmp[2], arrTmp[3]);
+                Manager manager = new Manager();
+                manager.fromCSV(line);                             //Fill Data to object manager
                 listManag.add(manager);
-
-                ArrayList<Sales> listSale = new ArrayList<Sales>();    // For Parce elements  of arrTmp for Sale array
-                for (int i=4; i<arrTmp.length;i++){
-                    String[] arrTmp2 = arrTmp[i].split(" цена:");
-                    Sales sales = new Sales(arrTmp2[0] ,Double.parseDouble(arrTmp2[1])); // Double.parseDouble(arrTmp2[0]
-                    listSale.add(sales);
-                }
-                manager.setListSale(listSale);// Add collection to manegers object
             }
         } catch (IOException error){
             System.err.print(error.getMessage());
@@ -56,15 +43,9 @@ public class Hierarchy {
             Scanner in =new Scanner(fr);
             while (in.hasNextLine()) {                                 //read lines until the end
                 String line = in.nextLine();
-                String[] arrTmp = line.split(",");              //Create new arr from line String
-                Developer developer = new Developer(Integer.parseInt(arrTmp[0]) , arrTmp[1], arrTmp[2], arrTmp[3]);
+                Developer developer = new Developer();
+                developer.fromCSV(line);
                 listDevelop.add(developer);
-
-                ArrayList<String> listLang = new ArrayList<String>();    // For Parce elements  of arrTmp for Sale array
-                for (int i=4; i<arrTmp.length;i++){
-                        listLang.add(arrTmp[i]);
-                }
-                developer.setListLang(listLang);// Add collection to developers object
             }
 
         } catch (IOException error){

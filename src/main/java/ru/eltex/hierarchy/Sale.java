@@ -1,6 +1,15 @@
 package ru.eltex.hierarchy;
 
-public class Sales {
+public class Sale implements CSV {
+    //Interface
+    public  String toCSV(){
+        return this.name +","+this.cost;
+    }
+    public void fromCSV(String str){
+        String[] arr = str.split("цена:");
+        this.name = arr[0];
+        this.cost = Double.parseDouble(arr[1]);
+    }
     //varible
     String name;
     Double cost;
@@ -19,9 +28,10 @@ public class Sales {
     }
 
     //Constructor
-    public Sales(String name, Double cost){
+    public Sale(String name, Double cost){
         this.name=name;
         this.cost=cost;
     }
+    public Sale(){};
 
 }
