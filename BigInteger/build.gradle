@@ -1,0 +1,7 @@
+apply plugin: "java"
+apply plugin: "application"
+mainClassName="ru.eltex.TwoIn1000"
+run{
+    standardInput = System.in
+
+}
