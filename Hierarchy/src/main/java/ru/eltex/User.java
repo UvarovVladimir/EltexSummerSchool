@@ -1,8 +1,10 @@
 package ru.eltex;
 
-abstract class User {
-
-
+abstract class User implements Comparable {
+    // Comparable
+    public int compareTo(User other){
+        return this.id.compareTo(other.id);
+    }
     //Variable
     private Integer id;
     private String fio;
@@ -31,7 +33,7 @@ abstract class User {
         this.email = email;
     }
 
-    //Constructor
+    //Constructors
     public User(Integer id, String fio, String phone, String email){
         this.id=id;
         this.fio=fio;
@@ -40,6 +42,4 @@ abstract class User {
     }
 
     public User(){}
-
-
 }

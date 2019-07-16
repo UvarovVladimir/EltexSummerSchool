@@ -5,10 +5,12 @@ import java.util.ArrayList;
 class Developer extends User implements CSV{
 
     //Interface
+    @Override
     public  String toCSV(){
         return super.getId() +","+super.getFio() +","
                 +super.getPhone() + "," + super.getEmail();
     }
+    @Override
     public void fromCSV(String str){
         String[] arr = str.split(",");               //Parse Line
         super.setId(Integer.parseInt(arr[0]));
