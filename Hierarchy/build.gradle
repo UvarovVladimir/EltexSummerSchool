@@ -1,7 +1,19 @@
 apply plugin: "java"
 apply plugin: "application"
 mainClassName="ru.eltex.Hierarchy"
+
+repositories {
+    mavenCentral()
+}
+    dependencies {
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+    }
+
+
 run{
     standardInput = System.in
 
-}
+    }
+
+

@@ -2,6 +2,7 @@ package ru.eltex;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -108,7 +109,9 @@ public class Hierarchy {
         }
 
 
-
+//SQL
+        SQL.writeUserFromCsvToSqlTable("src/main/resources/Managers.csv", "DEVELOPER");
+        SQL.printUserFromSql("DEVELOPER");
 
     }
 }

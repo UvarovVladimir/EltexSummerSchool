@@ -1,12 +1,13 @@
 package ru.eltex;
-class Mai
+class Main{
 
     public static void main (String[] args) {
         System.out.println("Потоки:");
-        Runnable r = new Main(sock);
-        Thread t =new Thread(r);
-        t.start();
-
+        for (int i =0;i<10;i++) {
+            Runnable r = new MyThread();
+            Thread t = new Thread(r);
+            t.start();
+        }
 
     }
 }
