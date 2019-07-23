@@ -2,9 +2,32 @@ package ru.eltex;
 
 abstract class User implements Comparable {
     // Comparable
-    public int compareTo(User other){
-        return this.id.compareTo(other.id);
+    public String compareIdTo(User other){
+    //Compare ID of other user and this user .Return String.
+        int i = this.id.compareTo(other.id);
+        switch (i) {
+            case -1:
+                return  other.getFio()+ " Id more then Id "+ this.getFio();
+            case 1:
+                return  other.getFio()+ " Id less then Id " +this.getFio();
+            case 0:
+                return  other.getFio() +" and "+ this.getFio() +" Id equals " ;
+            default:
+               return "Wrong operation!";
+        }
     }
+
+
+    public String equalsFioTo(User other) {
+        //Compare ID of other user and this user .Return String.
+        boolean b = this.fio.equals(other.fio);
+        if (b) return "User "+ this.id +" and "+other.id+" FIO equals!";
+        else return "User "+ this.id +" and "+other.id+" FIO NOT equals!";
+    }
+
+
+
+
     //Variable
     private Integer id;
     private String fio;

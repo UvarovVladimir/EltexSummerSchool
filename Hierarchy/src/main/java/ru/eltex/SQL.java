@@ -11,11 +11,10 @@ public class SQL {
     public static void printUserFromSql(String table) {
         try {
             Connection connection = DriverManager.getConnection(
-                    DB_URL, "root", "Pass123*123"); //соединение с БД
+                    DB_URL, "root", "Pass123*123"); //connect with MYSQL
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM " + table); // получение записей
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM " + table); // get data from SQL
             while (resultSet.next()) { // проход по полученным записям
-
                 String id = resultSet.getString("id"); // получение значений полей
                 String fio = resultSet.getString("fio"); // получение значений полей
                 String phone = resultSet.getString("phone"); // получение значений полей

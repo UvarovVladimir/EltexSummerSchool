@@ -6,13 +6,15 @@ public class Sale implements CSV {
         return this.name +","+this.cost;
     }
     public void fromCSV(String str){
-        String[] arr = str.split("цена:");
-        this.name = arr[0];
-        this.cost = Double.parseDouble(arr[1]);
+        String[] arr = str.split(" цена:");
+        if (arr.length>=2) {
+            this.name = arr[0];
+            this.cost = Double.parseDouble(arr[1]);
+        }
     }
     //varible
-    String name;
-    Double cost;
+    String name = "";
+    Double cost = 0.0;
     //get set
     public String getName() {
         return name;
