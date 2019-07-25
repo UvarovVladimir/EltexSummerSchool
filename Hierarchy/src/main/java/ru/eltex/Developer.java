@@ -1,10 +1,11 @@
 package ru.eltex;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.persistence.Entity;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
+@Entity
 class Developer extends User implements CSV,JSON{
 //Interface
     @Override

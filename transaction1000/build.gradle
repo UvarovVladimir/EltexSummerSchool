@@ -1,11 +1,17 @@
 apply plugin: "java"
 apply plugin: "application"
-mainClassName="ru.eltex.Hierarchy"
+mainClassName="ru.eltex.Main"
+
+group 'ru.eltex'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
-    dependencies {
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
@@ -15,12 +21,9 @@ repositories {
     compile 'mysql:mysql-connector-java:8.0.17'
     implementation 'org.hibernate:hibernate-core:5.4.3.Final'
 
-    }
-
+}
 
 run{
     standardInput = System.in
 
-    }
-
-
+}

@@ -1,5 +1,14 @@
 package ru.eltex;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+@ToString
 abstract class User implements Comparable {
     // Comparable
     public String compareIdTo(User other){
@@ -25,44 +34,24 @@ abstract class User implements Comparable {
         else return "User "+ this.id +" and "+other.id+" FIO NOT equals!";
     }
 
-
-
-
     //Variable
+    @Getter @Setter @Id
     private Integer id;
+    @Getter    @Setter
     private String fio;
+    @Getter    @Setter
     private String phone;
+    @Getter    @Setter
     private String email;
 
-    // Get Set
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) { this.id = id; }
-    public String getFio() {
-        return fio;
-    }
-    public void setFio(String fio) {
-        this.fio = fio;
-    }
-    public String getPhone() {
-        return phone;
-    }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    public String getEmail() { return email; }
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     //Constructors
-    public User(Integer id, String fio, String phone, String email){
+    User(Integer id, String fio, String phone, String email){
         this.id=id;
         this.fio=fio;
         this.phone=phone;
         this.email=email;
     }
 
-    public User(){}
+     User(){}
 }

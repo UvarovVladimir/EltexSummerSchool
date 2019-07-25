@@ -98,7 +98,8 @@ public class Hierarchy {
         }
         System.out.println(devFromJson.toCSV());
 
-
+    //Hibernate
+        Hibernate.hibernate();
     }
 }
 
