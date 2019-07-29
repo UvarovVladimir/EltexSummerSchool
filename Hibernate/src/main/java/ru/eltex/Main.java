@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Hierarchy {
+public class Main {
     public static void main(String[] args) {
         //***MANAGERS***
-        ArrayList<Manager> listManag = new ArrayList<Manager>();
+      /*  ArrayList<Manager> listManag = new ArrayList<Manager>();
         try{
             FileReader fr = new FileReader("src/main/resources/Managers.csv");
             Scanner in =new Scanner(fr);
@@ -97,7 +97,7 @@ public class Hierarchy {
             e.printStackTrace();
         }
         System.out.println(devFromJson.toCSV());
-
+*/
     //Hibernate
         System.out.println("hibern");
         Hibernate.hibernate();

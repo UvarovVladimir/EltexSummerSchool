@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ru.eltex.entity.Passport;
+import ru.eltex.entity.User;
+
 
 public class Hibernate {
 
@@ -18,13 +21,23 @@ public class Hibernate {
             StandardServiceRegistryBuilder.destroy(registry);
             throw e;
         }
-        Manager user1 =new Manager(888,"24234","23423","234234");
+        User user1 =new User("Vladimir");
+        User user2 =new User("Denis");
+        User user3 =new User("Mike");
 
-        Manager user2 =new Manager(999,"24234","3333","444444");
+        Passport passport1 =new Passport ("3208576688L");
+        Passport passport2 =new Passport ("5466778899L");
+        Passport passport3 =new Passport ("6723998877");
+        user1.setPassport(passport1);
+        user2.setPassport(passport2);
+        user3.setPassport(passport3);
+
 // создание сессии (запись в БД)
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(user1); session.save(user2);
+        session.save(user1); session.save(user2);session.save(user3);
+        session.save(passport1); session.save(passport2);session.save(passport3);
+
         session.getTransaction().commit();
         session.close();
 
