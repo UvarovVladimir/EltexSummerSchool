@@ -3,7 +3,7 @@ package ru.eltex.entity;
 import lombok.*;
 
 import javax.persistence.*;
-
+@ToString
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Getter
@@ -20,11 +20,16 @@ public class User {
     @Column(name = "User_name")
     private String fio;
 
+
     @Getter
     @Setter
     @NonNull
-    @Column(name = "Phone")
+    @Column(name = "User_phone")
     private String phone;
 
-
+//    @Getter
+//    @Setter
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "Pass_id_number")
+//    private Passport passport;
 }

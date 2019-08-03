@@ -1,6 +1,7 @@
 apply plugin: "java"
 apply plugin: "application"
-mainClassName="ru.eltex.Enum"
+mainClassName="ru.eltex.Server"
 run{
     standardInput = System.in
+
 }

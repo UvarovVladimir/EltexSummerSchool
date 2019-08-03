@@ -1,4 +1,4 @@
-package ru.eltex;
+package ru.eltex.interfaces;
 
 public interface CSV {
     String toCSV();

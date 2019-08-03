@@ -1,11 +1,11 @@
 apply plugin: "java"
 apply plugin: "application"
-mainClassName="ru.eltex.Main"
+mainClassName = "ru.eltex.Main"
 
 repositories {
     mavenCentral()
 }
-    dependencies {
+dependencies {
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
@@ -15,12 +15,12 @@ repositories {
     compile 'mysql:mysql-connector-java:8.0.17'
     implementation 'org.hibernate:hibernate-core:5.4.3.Final'
 
-    }
+}
 
 
-run{
+run {
     standardInput = System.in
 
-    }
+}
 
 

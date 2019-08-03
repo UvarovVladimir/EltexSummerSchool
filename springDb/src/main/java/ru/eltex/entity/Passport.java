@@ -25,5 +25,5 @@ public class Passport{
     @Getter
     @Setter
     @OneToOne(mappedBy = "passport")
-    private User user;
+    private User2 user;
 }

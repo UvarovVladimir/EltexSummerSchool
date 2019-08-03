@@ -2,9 +2,11 @@ apply plugin: "java"
 apply plugin: "application"
 mainClassName="ru.eltex.Main"
 
+
 repositories {
     mavenCentral()
 }
+
 dependencies {
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
@@ -17,10 +19,6 @@ dependencies {
 
 }
 
-run{
+run {
     standardInput = System.in
-
-    }
-
-
-
+}

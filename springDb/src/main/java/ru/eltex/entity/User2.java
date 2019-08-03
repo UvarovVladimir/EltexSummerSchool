@@ -8,7 +8,7 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class User2 {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +22,7 @@ public class User {
 
     @Getter
     @Setter
-    @NonNull
-    @Column(name = "Phone")
-    private String phone;
-
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Pass_id_number")
+    private Passport passport;
 }

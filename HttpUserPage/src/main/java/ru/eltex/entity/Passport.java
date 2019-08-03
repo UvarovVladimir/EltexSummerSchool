@@ -1,30 +1,29 @@
+
+
 package ru.eltex.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
 
+@Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Entity
-@Table(name = "users")
-public class User {
+@Table(name = "passports")
+public class Passport{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(name = "S_N")
+    @NonNull
     @Getter
     @Setter
-    @NonNull
-    @Column(name = "User_name")
-    private String fio;
+    private String serialNumder;
 
-    @Getter
-    @Setter
-    @NonNull
-    @Column(name = "Phone")
-    private String phone;
-
-
+//    @Getter
+//    @Setter
+//    @OneToOne(mappedBy = "passport")
+//    private User user;
 }

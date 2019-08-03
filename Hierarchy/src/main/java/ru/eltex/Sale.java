@@ -1,5 +1,7 @@
 package ru.eltex;
 
+import ru.eltex.interfaces.CSV;
+
 public class Sale implements CSV {
     //Interface
     public  String toCSV(){

@@ -8,8 +8,10 @@ import org.bson.Document;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.UnknownHostException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
 
 public class MongoDb {
     public static void mongoDbDo() {
@@ -53,11 +55,11 @@ public class MongoDb {
         listdoc.add(doc3);
         Document doc4 = new Document("name", "Neo")
                 .append("phone", "900444")
-                .append("lang", Arrays.asList("java", "c++","Delphy","Pyton"));
+                .append("lang", Arrays.asList("java", "c++", "Delphy", "Pyton"));
         listdoc.add(doc4);
         Document doc5 = new Document("name", "Simon")
                 .append("phone", "900555")
-                .append("lang", Arrays.asList( "c++"));
+                .append("lang", Arrays.asList("c++"));
         listdoc.add(doc5);
 //        table.insertOne(doc); // table.insertMany(userList);
         table.insertMany(listdoc);
@@ -66,5 +68,14 @@ public class MongoDb {
         for (Document cur : table.find()) {
             System.out.println(cur.toJson());
         }
+
+// обновление записи
+//        BasicDBObject newDocument = new BasicDBObject();
+//        newDocument.append("$set", new BasicDBObject().append("clients", 110));
+//        BasicDBObject searchQuery = new BasicDBObject().append("hosting", "hostB");
+//        listdoc.update(searchQuery, newDocument);
+// удаление записи
+//        listdoc.remove(searchQuery);
+
     }
 }

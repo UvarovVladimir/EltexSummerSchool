@@ -27,6 +27,10 @@ public class Enum {
             case SUNDAY:
                 System.out.println("It's weekend");
                 break;
+
+
+
+
         }
     }
 }

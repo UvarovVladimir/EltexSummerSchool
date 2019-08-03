@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <title>USERS PAGE JQuery</title>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+$.get("/get_users",
+function(data){
+console.log(data);
+$(".users").html("<data[0]>");
+}
+);
+});
+
+
+</script>
+<br>
+<div class="block1" style="height:250px;
+                            weight:350px;
+                            background-color:#FF0000;">
+    <button>submit</button>
+    <font> Press button</font>
+</div>
+<br/>
+<span id="block2">
+    <form action="action.html"
+</span>
+
+<h1>Hello!!!!!! </h1>
+<h1>Some text will put over there</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"> Column N1</div>
+        <h1>Some text will put over there</h1>
+        <h1>Some text will put over there</h1>
+        <h1>Some text will put over there</h1>
+        <div class="col-md-4"> Column N2</div>
+        <div class="col-md-4"> Column N3</div>
+    </div>
+</div>
+<button type="button" class="btn btn-danger">Dangerous</button>
+</body>
+</html>

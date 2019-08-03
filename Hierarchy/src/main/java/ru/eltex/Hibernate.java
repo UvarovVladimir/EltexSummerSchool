@@ -7,7 +7,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class Hibernate {
-
     private static SessionFactory sessionFactory  ;
     public static void hibernate(){
         // создание сервиса взаимодействия
@@ -18,9 +17,9 @@ public class Hibernate {
             StandardServiceRegistryBuilder.destroy(registry);
             throw e;
         }
-        Manager user1 =new Manager(888,"24234","23423","234234");
+        Manager user1 =new Manager(889,"24234","23423","234234");
 
-        Manager user2 =new Manager(999,"24234","3333","444444");
+        Manager user2 =new Manager(9999,"24234","3333","444444");
 // создание сессии (запись в БД)
         Session session = sessionFactory.openSession();
         session.beginTransaction();

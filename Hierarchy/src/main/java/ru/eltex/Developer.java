@@ -1,12 +1,15 @@
 package ru.eltex;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ru.eltex.interfaces.CSV;
+import ru.eltex.interfaces.JSON;
 
 import javax.persistence.Entity;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 @Entity
-class Developer extends User implements CSV,JSON{
+class Developer extends User implements CSV, JSON {
 //Interface
     @Override
     public  String toCSV(){
@@ -36,28 +39,22 @@ class Developer extends User implements CSV,JSON{
     }
 
     @Override
-    public  String toJson(){
+    public String toJson() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        String developerJSON ="";
-        File file = new File("src/main/resources/Developers.json");
-        try {
-            mapper.writeValue(file, this);
-            developerJSON = mapper.writeValueAsString(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return  developerJSON;
+        String developerJSON =  mapper.writeValueAsString(this);
+        return developerJSON;
     }
 
     @Override
-    public  void fromJson(String dir) throws IOException{
+    public void fromJson(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Developer developer = mapper.readValue(new File(dir), Developer.class);
+        Developer developer = mapper.readValue(json, Developer.class);
         this.setId(developer.getId());
         this.setFio(developer.getFio());
         this.setPhone(developer.getPhone());
         this.setEmail(developer.getEmail());
         this.setListLang(developer.getListLang());
+
     }
 
 //variables
