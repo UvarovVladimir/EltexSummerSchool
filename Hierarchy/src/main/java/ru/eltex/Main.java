@@ -3,6 +3,7 @@ package ru.eltex;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Main {
@@ -22,9 +23,13 @@ public class Main {
 //***Equals***
         Compare.equalsFioTo(listDevelop.get(2), listManag);
 //***SQL***
-       /* System.out.println("    *** SQL***");
-        SQL.writeUserFromCsvToSqlTable("src/main/resources/Managers.csv", "DEVELOPER");
-        SQL.printUserFromSql("DEVELOPER");*/
+        System.out.println("    *** SQL***");
+        try {
+            SQL.writeUserFromCsvToSqlTable("src/main/resources/Managers.csv", "DEVELOPER");
+            SQL.printUserFromSql("DEVELOPER");
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
 //***Json***
         try {
             listManag = JsonReadWrite.fillManagers();
@@ -34,7 +39,7 @@ public class Main {
         }
 
         try {
-            listDevelop= JsonReadWrite.fillDevelopers();
+            listDevelop = JsonReadWrite.fillDevelopers();
             JsonReadWrite.writeDevelopers(listDevelop);
         } catch (JsonProcessingException e) {
             e.printStackTrace();

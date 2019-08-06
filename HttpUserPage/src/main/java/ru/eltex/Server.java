@@ -5,6 +5,20 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
+
+/*
+  case "get_user": {
+          System.out.println("Показать одного пользователя c id: " + arrdir[2]);
+          httpPage = "<!DOCTYPE>\n" +
+          "</html>\n" +
+          "<body>\n" +
+          "<h1>" + Hibernate.getUserData(arrdir[2]) + "</h1> \n" +
+          "</body>\n" +
+          "</html>";
+          break;
+          }*/
+
+
 public class Server {
     public static void serverRun() {
         System.out.println("Сервак запущен: ");
@@ -24,52 +38,30 @@ public class Server {
 //Заполняем тело сообщения - строку httpPage
                         String httpPage = "";
 //выбираем по первому полю в REST
+                        String send = "";
                         switch (arrdir[1]) {
                             case "get_user": {
                                 System.out.println("Показать одного пользователя c id: " + arrdir[2]);
-                                httpPage = "<!DOCTYPE>\n" +
-                                        "</html>\n" +
-                                        "<body>\n" +
-                                        "<h1>" + Hibernate.getUserData(arrdir[2]) + "</h1> \n" +
-                                        "</body>\n" +
-                                        "</html>";
+                                httpPage = Hibernate.getUserData(arrdir[2]);
                                 break;
                             }
-
                             case "remove_user": {
                                 System.out.println("Удалить пользователя c id: " + arrdir[2]);
-                                httpPage = "<!DOCTYPE>\n" +
-                                        "</html>\n" +
-                                        "<body>\n" +
-                                        "<h1>" + Hibernate.removeUser(arrdir[2]) + "</h1> \n" +
-                                        "</body>\n" +
-                                        "</html>";
+                                httpPage = Hibernate.removeUser(arrdir[2]);
+
                                 break;
                             }
-
                             case "get_users": {
-                                System.out.println("Показать всех пользователей: " );
-                                httpPage = "<!DOCTYPE>\n" +
-                                        "</html>\n" +
-                                        "<body>\n" +
-                                        "<h1>" + Hibernate.getAllUserData() + "</h1> \n" +
-                                        "</body>\n" +
-                                        "</html>";
+                                System.out.println("Показать всех пользователей: ");
+                                httpPage = Hibernate.getAllUserData();
                                 break;
                             }
-
                             case "create": {
                                 Hibernate.createUsers();
-                                System.out.println("Создать 5 пользователей: " );
-                                httpPage = "<!DOCTYPE>\n" +
-                                        "</html>\n" +
-                                        "<body>\n" +
-                                        "<h1>" + "Users are created" + "</h1> \n" +
-                                        "</body>\n" +
-                                        "</html>";
+                                System.out.println("Создать 5 пользователей: ");
+                                httpPage = "Users has created";
                                 break;
                             }
-
                             case "script": {
                                 FileReader fr = new FileReader("/home/vladimir/EltexSummerSchool/HttpUserPage/" +
                                         "src/main/resources/index.html");
@@ -80,15 +72,10 @@ public class Server {
                                 }
                                 break;
                             }
-
-
                             case "script2": {
-
-                                    httpPage = "line";
-                                }
-                                break;
+                                httpPage = "line";
                             }
-
+                            break;
 
 
 //Cообщение о некорректном запросе
@@ -103,10 +90,21 @@ public class Server {
                             }
                         }
 //Заполняем верхние поля для отправки
-                        String send = "HTTP/1.0 200 OK\n" +
-                                "Content-Length:" + httpPage.length() + "\n" +
-                                "\n" +
-                                httpPage;
+                        if (httpPage.charAt(0)=='[' || httpPage.charAt(0)=='{') {
+                             send = "HTTP/1.0 200 OK\n" +
+                                    "Content-Type: application/json" + "\n" +
+                                    "Content-Length:" + httpPage.length() + "\n" +
+                                    "\n" +
+                                    httpPage;
+                            System.out.println("SEND Json");
+                        } else {
+                             send = "HTTP/1.0 200 OK\n" +
+                                     "Content-Type: text/html" + "\n" +
+                                     "Content-Length:" + httpPage.length() + "\n" +
+                                    "\n" +
+                                    httpPage;
+                            System.out.println("SEND String");
+                        }
 //отправка сообщения
                         System.out.println(Thread.currentThread().getName() + httpPage);
                         out.write(send);
@@ -117,7 +115,8 @@ public class Server {
                     }
                 }).start();
             }
-        } catch (IOException e) {
+        } catch (
+                IOException e) {
             System.err.println(e.getMessage());
         }
     }

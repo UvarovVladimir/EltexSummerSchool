@@ -1,44 +1,37 @@
 package ru.eltex;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
 
 public class SQL {
-/*
 
-    public static void printUserFromSql(String table) throws SQLException {
+
+    public static void printUserFromSql(String table) throws SQLException, IOException {
+        FileInputStream fis;
+        Properties pr = new Properties();
+        fis = new FileInputStream("src/main/resources/db.properties");
         try {
-            FileInputStream fis;
-            Properties pr = new Properties();
-            fis = new FileInputStream("src/main/resources/db.properties");
-            try {
-                pr.load(fis);
-                String DB_URL = pr.getProperty("db.host");
+            pr.load(fis);
+            String DB_URL = pr.getProperty("db.host");
 
-                Connection connection = DriverManager.getConnection(DB_URL,
-                        pr.getProperty("db.user"), pr.getProperty("db.password")); //connect with MYSQL
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM " + table); // get data from SQL
-                while (resultSet.next()) { // проход по полученным записям
-                    String id = resultSet.getString("id"); // получение значений полей
-                    String fio = resultSet.getString("fio"); // получение значений полей
-                    String phone = resultSet.getString("phone"); // получение значений полей
-                    System.out.println(id + " " + fio + " " + phone);
-                }
-
-                connection.close(); // отключение от БД
-            } catch (SQLException | IOException e) {
-                System.out.println(e.getMessage());
-
+            Connection connection = DriverManager.getConnection(DB_URL,
+                    pr.getProperty("db.user"), pr.getProperty("db.password")); //connect with MYSQL
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM " + table); // get data from SQL
+            while (resultSet.next()) { // проход по полученным записям
+                String id = resultSet.getString("id"); // получение значений полей
+                String fio = resultSet.getString("fio"); // получение значений полей
+                String phone = resultSet.getString("phone"); // получение значений полей
+                System.out.println(id + " " + fio + " " + phone);
             }
+
+            connection.close(); // отключение от БД
         } catch (SQLException | IOException e) {
             System.out.println(e.getMessage());
+
         }
     }
 
@@ -93,10 +86,12 @@ public class SQL {
                 System.err.print(error.getMessage());
             }
             connection.close(); // отключение от БД
-        } catch (SQLException e) {
+        } catch (SQLException | FileNotFoundException e) {
             System.out.println(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 
-    }*/
+    }
 }
