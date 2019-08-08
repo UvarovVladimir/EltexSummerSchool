@@ -1,0 +1,43 @@
+apply plugin: "java"
+apply plugin: "application"
+apply plugin: "war"
+
+mainClassName="ru.eltex.Main"
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compile 'mysql:mysql-connector-java:8.0.17'
+    implementation 'org.hibernate:hibernate-core:5.4.3.Final'
+    compile "javax.servlet:javax.servlet-api:4.0.1"
+    compile "javax.servlet.jsp:javax.servlet.jsp-api:2.3.3"
+    compile "org.apache.tomcat.embed:tomcat-embed-core:9.0.22",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M6",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:9.0.22"
+
+}
+task deployToTomcat(type: Copy) {
+    from war.archivePath
+    into "/opt/tomcat/apache-tomcat-9.0.22/webapps/"
+}
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.2'
+    }
+}
+
+run {
+    standardInput = System.in
+}
