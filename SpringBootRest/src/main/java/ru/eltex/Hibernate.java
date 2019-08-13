@@ -8,7 +8,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.eltex.entity.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -47,11 +46,6 @@ public class Hibernate {
         List<User> users = sessionR.createQuery("from User").list();
         sessionR.getTransaction().commit();
         sessionR.close();
-//        if (users.size() == 0) {
-//            List<User> noname = new ArrayList<>();
-//            noname.add(new User("noname", "0"));
-//            return
-//        }
         for (User u : users) {
             System.out.println(u.toString());
         }

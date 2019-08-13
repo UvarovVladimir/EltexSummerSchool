@@ -38,22 +38,22 @@
         });
     }
 
-    function logout() {
-        $.get("/logout",function(data){
+    function deleteUser() {
+    var idUser = document.getElementById('numberUser').value;
+        $.get("/remove_user/"+idUser,function(data){
             console.log(data);
-<!--            $(".Users").html(data);-->
-<!--            getAllUsers()-->
+            $(".Users").html(data);
+            getAllUsers()
         });
     }
 
-<!--    function createUsers() {-->
-<!--        $.get("/create",function(data){-->
-<!--            console.log(data);-->
-<!--            $(".Users").html(data);-->
-<!--            getAllUsers()-->
-<!--        });-->
-<!--    }-->
-
+    function createUsers() {
+        $.get("/create",function(data){
+            console.log(data);
+            $(".Users").html(data);
+            getAllUsers()
+        });
+    }
 
 
 </script>
@@ -91,10 +91,9 @@
             <br/>
             <br/>
             <br/>
+            <button type="button" onclick="deleteUser()">Delate choosen User</button>
+            <button type="button" onclick="createUsers()">Create 5 new Users</button>
             <button type="button" onclick="getAllUsers()">Refresh</button>
-            <br/>
-            <button type="button" onclick="logout()">Logout</button>
-
         </div>
     </div>
 </div>
