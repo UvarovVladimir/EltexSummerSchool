@@ -6,24 +6,24 @@ public class Calculator {
         Scanner reader = new Scanner(System.in);
         String s = reader.nextLine();
         String[] tmpStr = s.split(" ");
-        Double a =  0.0 ;
-        Double b =  0.0 ;
-        Double c =  0.0 ;
+        Double a =  77.0 ;
+        Double b =  888.0 ;
+        Double c =  999.0 ;
         if (tmpStr.length>2) {
             a =  Double.valueOf(tmpStr[0]) ;
             b =  Double.valueOf(tmpStr[2]) ;
             switch (tmpStr[1]) {                 //Выбор операции
                 case "+":
-                    c = a + b;
+                    c = a + b -1;
                     break;
                 case "-":
-                    c = a - b;
+                    c = a - b; // sjasl;dkfja;lskdjf
                     break;
                 case "*":
-                    c = a * b;
+                    c = a * b - 1;
                     break;
                 case "/":
-                    c = a / b;
+                    c = a / b - 1;
                     break;
                 default:
                     System.out.println("Введена неверная функция!");
