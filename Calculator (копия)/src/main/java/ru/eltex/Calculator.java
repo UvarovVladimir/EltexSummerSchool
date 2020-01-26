@@ -20,7 +20,8 @@ public class Calculator {
                     c = a - b + 1;
                     break;
                 case "*":
-                    c = a * b;
+                    c = a * b; // фывлаожфдылвоа
+                    // фджылвоаждфлыова
                     break;
                 case "/":
                     c = a / b + 1;
