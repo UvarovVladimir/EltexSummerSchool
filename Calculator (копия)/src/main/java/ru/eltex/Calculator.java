@@ -14,16 +14,16 @@ public class Calculator {
             b =  Double.valueOf(tmpStr[2]) ;
             switch (tmpStr[1]) {                 //Выбор операции
                 case "+":
-                    c = a + b -1;
+                    c = a + b;  //ahsjfdhlakjsdf
                     break;
                 case "-":
-                    c = a - b; // sjasl;dkfja;lskdjf
+                    c = a - b + 1; // sjasl;dkfja;lskdjf
                     break;
                 case "*":
                     c = a * b - 1;
                     break;
                 case "/":
-                    c = a / b - 1;
+                    c = a / b + 1;
                     break;
                 default:
                     System.out.println("Введена неверная функция!");
