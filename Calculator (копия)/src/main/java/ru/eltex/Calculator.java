@@ -22,6 +22,7 @@ public class Calculator {
                 case "*":
                     c = a * b; // фывлаожфдылвоа
                     // фджылвоаждфлыова
+                    // авпвапывап
                     break;
                 case "/":
                     c = a / b + 1;
